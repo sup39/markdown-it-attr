@@ -1,0 +1,121 @@
+td
+.
+| h1 | h2 | h3 |
+| -- | -- | -- |
+| c1 | c2 {.k1}| c3 |
+| d1 {#m1} | d2 | d3 {.m2 m3=m4} |
+.
+<table>
+<thead>
+<tr>
+<th>h1</th>
+<th>h2</th>
+<th>h3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>c1</td>
+<td class="k1">c2</td>
+<td>c3</td>
+</tr>
+<tr>
+<td id="m1">d1</td>
+<td>d2</td>
+<td m3="m4" class="m2">d3</td>
+</tr>
+</tbody>
+</table>
+.
+
+
+tr
+.
+| h1 | h2 | h3 |
+| -- | -- | -- |
+| c1 | c2 | c3 | {.r.s}
+| d1 | d2 | d3 | { #t u=v }
+.
+<table>
+<thead>
+<tr>
+<th>h1</th>
+<th>h2</th>
+<th>h3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="r s">
+<td>c1</td>
+<td>c2</td>
+<td>c3</td>
+</tr>
+<tr id="t" u="v">
+<td>d1</td>
+<td>d2</td>
+<td>d3</td>
+</tr>
+</tbody>
+</table>
+.
+
+
+th+td+tr+table
+.
+{.bd}
+| h1{.a.b#c.d} | h2 | h3 |
+| -- | -- | -- |
+| c1 | c2 {.k1}| c3 | {#r.s}
+| d1 {#m1} | d2 | d3 {.m2 m3=m4} |
+.
+<table class="bd">
+<thead>
+<tr>
+<th id="c" class="a b d">h1</th>
+<th>h2</th>
+<th>h3</th>
+</tr>
+</thead>
+<tbody>
+<tr id="r" class="s">
+<td>c1</td>
+<td class="k1">c2</td>
+<td>c3</td>
+</tr>
+<tr>
+<td id="m1">d1</td>
+<td>d2</td>
+<td m3="m4" class="m2">d3</td>
+</tr>
+</tbody>
+</table>
+.
+
+
+colspan & rowspan
+.
+| h1 | h2 | h3 {.ch} |
+| -- | -- | -- |
+| x1 | x2 {.c2} | x3 {rowspan=2 .c3} | {.r1}
+| x4 {colspan=2 .c4} | {.r2}
+.
+<table>
+<thead>
+<tr>
+<th>h1</th>
+<th>h2</th>
+<th class="ch">h3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="r1">
+<td>x1</td>
+<td class="c2">x2</td>
+<td rowspan="2" class="c3">x3</td>
+</tr>
+<tr class="r2">
+<td colspan="2" class="c4">x4</td>
+</tr>
+</tbody>
+</table>
+.

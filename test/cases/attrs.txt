@@ -1,0 +1,46 @@
+id
+.
+# text {#iid}
+.
+<h1 id="iid">text</h1>
+.
+
+
+class
+.
+# text {.aa.b.c.dd .e  .fff    .gg}
+.
+<h1 class="aa b c dd e fff gg">text</h1>
+.
+
+
+non-escaped attributes
+.
+# text {a=be style=color:red;font-size:24px c=4+5}
+.
+<h1 a="be" style="color:red;font-size:24px" c="4+5">text</h1>
+.
+
+
+escaped attributes
+.
+# text {onload="alert('Hello World!')" onclick='alert("{#another.=.alert}")'}
+.
+<h1 onload="alert('Hello World!')" onclick="alert(&quot;{#another.=.alert}&quot;)">text</h1>
+.
+
+
+no need to escape backslash
+.
+# text {no-need-to-escape=\back\slash}
+.
+<h1 no-need-to-escape="\back\slash">text</h1>
+.
+
+
+mixed
+.
+# text {.a#b.c d="e.f".g-h i=j-k .l}
+.
+<h1 id="b" d="e.f" i="j-k" class="a c g-h l">text</h1>
+.

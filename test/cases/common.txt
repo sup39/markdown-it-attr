@@ -1,0 +1,91 @@
+inline
+.
+1 *2*{#a} **3** **4**{#b} {#c} 6
+.
+<p>1 <em id="a">2</em> <strong>3</strong> <strong id="b">4</strong> {#c} 6</p>
+.
+
+header[block]
+.
+{#a.b}
+# c d
+{e=f}
+## g h
+.
+<h1 id="a" class="b">c d</h1>
+<h2 e="f">g h</h2>
+.
+
+
+header[inline]
+.
+# c d {#a.b}
+## g h {e=f}
+.
+<h1 id="a" class="b">c d</h1>
+<h2 e="f">g h</h2>
+.
+
+
+simple list
+.
+{.a}
+- {#d} ab
+- cd
+- ef {.e}
+{.b}
+### header
+.
+<ul class="a">
+<li id="d">ab</li>
+<li>cd</li>
+<li class="e">ef</li>
+</ul>
+<h3 class="b">header</h3>
+.
+
+
+nested list
+.
+{#a}
+- {#b} x1
+  + y1
+  + {#c} y2
+- x2
+- x3
+  {#d}
+  + {#e} z1
+  + z2
+# end
+.
+<ul id="a">
+<li id="b">x1
+<ul>
+<li>y1</li>
+<li id="c">y2</li>
+</ul>
+</li>
+<li>x2</li>
+<li>x3
+<ul id="d">
+<li id="e">z1</li>
+<li>z2</li>
+</ul>
+</li>
+</ul>
+<h1>end</h1>
+.
+
+
+code[block]
+.
+{a.b#c.d}
+```
+code
+line2
+```
+.
+<pre><code a="" id="c" class="b d">code
+line2
+</code></pre>
+.
