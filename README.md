@@ -131,7 +131,7 @@ Output:
 ## Usage
 ```js
 const md = require('markdown-it')();
-const mia = require('@sup39/markdown-it-attrs');
+const mia = require('@sup39/markdown-it-attr');
 
 console.log(md.use(mia).render(`
 {#head-id}
@@ -151,7 +151,7 @@ which eliminates the attributes of `tr`.
 
 ```js
 const md = require('markdown-it')();
-const mia = require('markdown-it-attrs');
+const mia = require('@sup39/markdown-it-attr');
 const mrt = require('@sup39/markdown-it-raw-table');
 
 // enable raw_table_tr rule
