@@ -8,16 +8,16 @@ to write id, classes, and attributes.
 ### Where to put `{...}`
 |type|where|example|
 |:-:|:-:|--|
-|inline tag|**AFTER** tag|em / strong|
-|inline block|beginning / end|li / td / th|
+|inline block|**AFTER** tag|em / strong / code|
+|inline container|beginning / end|li / td / th|
 |block|**BEFORE** block|h1 / ul / table|
 
 Note: There is no way to add attributes to `tr` without extension.  
 See [Extension: Attributes for tr](#tr-extension) for more info.
 
 ## Examples
-### Attributes for inline tag
-Add `{...}` **AFTER** the inline tag.
+### Attributes for inline block
+Add `{...}` **AFTER** the inline block.
 
 #### em / strong
 Example Input:
@@ -29,8 +29,8 @@ Output:
 <p><em class="a">x</em> <strong class="b">y</strong> <em class="c"><strong>z</strong></em></p>
 ```
 
-### Attributes for inline block
-Add `{...}` at the **beginning** or the **end** in the inline block.
+### Attributes for inline container
+Add `{...}` at the **beginning** or the **end** in the inline container.
 
 #### list item
 Example Input:

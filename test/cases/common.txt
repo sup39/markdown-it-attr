@@ -89,3 +89,26 @@ line2
 line2
 </code></pre>
 .
+
+
+ver 1.0.0 bug: should not be trapped in infinite loop
+.
+- a: [b}{.c}d
+.
+<ul>
+<li>a: [b}{.c}d</li>
+</ul>
+.
+
+
+`code` block
+.
+a `b`{.c} d
+
+- `e`{.f} g
+.
+<p>a <code class="c">b</code> d</p>
+<ul>
+<li><code class="f">e</code> g</li>
+</ul>
+.
