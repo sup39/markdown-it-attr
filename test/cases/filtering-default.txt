@@ -1,0 +1,12 @@
+no-drop on* attributes 1
+.
+## Hello {#abc .intro onclick=alert("Hello")}
+.
+<h2 id="abc" onclick="alert(&quot;Hello&quot;)" class="intro">Hello</h2>
+.
+no-drop on* attributes 2
+.
+## Hello {#ca .intro onclick=alert('Hello') style="color: red" .c1 onhover=alert('hihi') .c3}
+.
+<h2 id="ca" onclick="alert('Hello')" style="color: red" onhover="alert('hihi')" class="intro c1 c3">Hello</h2>
+.
