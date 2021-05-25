@@ -15,6 +15,80 @@ to write id, classes, and attributes.
 Note: There is no way to add attributes to `tr` without extension.  
 See [Extension: Attributes for tr](#tr-extension) for more info.
 
+## Usage
+```javascript
+const md = require('markdown-it')();
+const mia = require('@sup39/markdown-it-attr');
+
+console.log(md.use(mia).render(`
+{#head-id}
+# head
+`));
+```
+Expected output:
+```html
+<h1 id="head-id">head</h1>
+```
+
+## Options
+There are 2 options for markdown-it-attr:
+- `deliminator`: string (default: `{`).
+- `re`: RegExp (See [below](#options-re))
+
+```javascript
+const md = require('markdown-it')();
+const mia = require('@sup39/markdown-it-attr');
+md.use(mia, {
+  deliminator: '{',
+  re: /\#(?<id>[^\s#.="'}]+)|\.(?<class>[^\s#.="'}]+)|(?<attr>[^\s#.="'}]+)(?:\=(?<val>[^\s}"'][^\s}]*|(?<q>["']).*?\k<q>))?|(?<term>})/g`,
+});
+// ...
+```
+
+### options.deliminator
+The prefix of the attributes definition.
+
+<h3 id="options-re">options.re</h3>
+
+markdown-it-attr uses RegExp **Named Capturing Groups** to parse attribute string.
+
+|Item|Group Name|
+|:--:|:---:|
+|id  |`id`|
+|class|`class`|
+|attribute|`attr`|
+|value|`val`|
+|quote|`q`|
+|terminator|`term`|
+
+The default `option.re` is
+```
+/\#(?<id>[^\s#.="'}]+)|\.(?<class>[^\s#.="'}]+)|(?<attr>[^\s#.="'}]+)(?:\=(?<val>[^\s}"'][^\s}]*|(?<q>["']).*?\k<q>))?|(?<term>})/g
+```
+which supports:
+- `#id` `.class` `attr`: consists of any character except whitespace and any of `#.="'}`
+- `=value`: consists of
+  - (without quote) any character except whitespace or `}`
+  - (with quote) any character except the quote
+- `}`: terminator
+
+If a attribute string fails to match `re` before a terminator,
+the whole string is invalidated and is treated as plain text.
+
+#### Attribute Filtering
+If a attribute string contains a substring that matches `re`
+but is not captured by any of [the named capturing group above](#options-re),
+then the substring is ignored.
+You can take advantage of this to filter attributes.
+
+For example, to drop any attribute with name starting with `on` (e.g. `onclick`, `onchange`),
+change `(?<attr>[^\s#.="'}]+)` to `(?:on[\s#.="']+|(?<attr>[^\s#.="'}]+))`,
+which matches `on*` without capturing with the `attr` group,
+and essentially drops the `on*` attribute (and the following value if presents).
+
+For example 2, if you also want to drop any `style` attribute,
+use `(?:on[\s#.="']+|style|(?<attr>[^\s#.="'}]+))`.
+
 ## Examples
 ### Attributes for inline block
 Add `{...}` **AFTER** the inline block.
@@ -128,20 +202,6 @@ Output:
 </table>
 ```
 
-## Usage
-```js
-const md = require('markdown-it')();
-const mia = require('@sup39/markdown-it-attr');
-
-console.log(md.use(mia).render(`
-{#head-id}
-# head
-`));
-```
-Expected output:
-```html
-<h1 id="head-id">head</h1>
-```
 
 <h2 id="tr-extension">Extension: Attributes for tr</h2>
 To make adding attributes to `tr` work, it is required to use

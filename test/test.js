@@ -13,7 +13,7 @@ module.exports = function test(md, fileName) {
   for (let i=2; i<elms.length; i+=3) {
     const title = elms[i-2].trim();
     it(title, () => {
-      assert.equal(md.render(elms[i-1]), elms[i]+'\n');
+      assert.strictEqual(md.render(elms[i-1]), elms[i]+'\n');
     });
   }
 };
