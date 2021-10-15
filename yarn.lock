@@ -38,6 +38,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@sup39/eslint-config-basic@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@sup39/eslint-config-basic/-/eslint-config-basic-0.1.0.tgz#4b445515ddf8e70766a7b790db1314c621829b39"
+  integrity sha512-+YJBNJ59T3WMAG5+M6zZJj341SfyCOlq3FuvUsZWy72ESKUCcMpl1LFUuy86K7iPeGGUs8Kex4f4EQrex1DBGg==
+
 "@sup39/markdown-it-raw-table@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@sup39/markdown-it-raw-table/-/markdown-it-raw-table-1.0.0.tgz#a8de8f03df60cba9430cc1c3f011e0b0eb05bcf6"
@@ -311,11 +316,6 @@ escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
-
-eslint-config-google@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-google/-/eslint-config-google-0.14.0.tgz#4f5f8759ba6e11b424294a219dbfa18c508bcc1a"
-  integrity sha512-WsbX4WbjuMvTdeVL6+J3rK1RGhCTqjsFjX7UMSMgZiyxxaNLkoJENbrGExzERFeoTpGw3F3FypTiWAP9ZXzkEw==
 
 eslint-scope@^5.1.1:
   version "5.1.1"

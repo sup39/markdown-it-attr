@@ -3,15 +3,11 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: [
-    'google',
-  ],
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  rules: {
-    'arrow-parens': ['error', 'as-needed'],
-    'indent': ['error', 2, {'MemberExpression': 1}],
-  },
+  extends: [
+    '@sup39/basic',
+  ],
 };
